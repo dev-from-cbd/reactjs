@@ -1,7 +1,8 @@
 import React from "react";
 
-const Todo = () => {
-  return <din>Todo Component</din>;
+const Todo = (props) => {
+  console.log(props);
+  return <div>Todo Component</div>;
 };
 
 export default Todo;

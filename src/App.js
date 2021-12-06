@@ -5,7 +5,7 @@ import TodoContainer from "./containers/todoContainer";
 function App() {
   return (
     <div className="App">
-      <h1 align="center">React JS</h1>
+      <h1 align="center">Task Manager</h1>
 
       <TodoContainer />
     </div>
