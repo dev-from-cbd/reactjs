@@ -1,5 +1,6 @@
 import React from "react";
 import Todo from "../../components/todoList";
+import AddTodo from "../../components/addTodo";
 
 const todoList = [
   { id: 1, title: "title #1", done: true },
@@ -8,11 +9,11 @@ const todoList = [
 const TodoContainer = () => {
   return (
     <div style={{ margin: 20 }}>
-      <h4 align="center">React JS Web App</h4>
+      <h4 align="center">ReactJS Web App</h4>
       {todoList.map((todo) => (
-        <Todo todos={todo} />
+        <Todo todo={todo} />
       ))}
-      {/* <Todo /> */}
+      <AddTodo />
     </div>
   );
 };
