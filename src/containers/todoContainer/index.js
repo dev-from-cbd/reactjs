@@ -9,7 +9,7 @@ const todoList = [
 const TodoContainer = () => {
   return (
     <div style={{ margin: 20 }}>
-      <h4 align="center">ReactJS Web App</h4>
+      <h4 align="center">React JS Web App</h4>
       {todoList.map((todo) => (
         <Todo todo={todo} />
       ))}

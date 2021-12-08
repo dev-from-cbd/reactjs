@@ -8,13 +8,24 @@ const AddTodo = () => {
     width: "100%",
   };
 
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState("Todo List");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newTodo = {
+      id: Math.random(),
+      title: title,
+      done: false,
+    };
+    alert(title);
+  };
 
   return (
     <div style={addTodoStyle}>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
           placeholder="Enter some Todo Task"
           style={{ width: "70%", padding: 10 }}
         />
