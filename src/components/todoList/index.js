@@ -1,7 +1,7 @@
 import React from "react";
 
 const Todo = ({ todo }) => {
-  console.log(todo);
+  //console.log(todo);
   return (
     <div>
       <input
@@ -20,6 +20,7 @@ const Todo = ({ todo }) => {
           cursor: "pointer",
           fontWeight: 600,
         }}
+        onClick={() => console.log(todo.id)}
       >
         X
       </span>

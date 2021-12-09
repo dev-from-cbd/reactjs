@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const AddTodo = () => {
+const AddTodo = ({ addTodo }) => {
   const addTodoStyle = {
     position: "fixed",
     bottom: 10,
@@ -8,7 +8,7 @@ const AddTodo = () => {
     width: "100%",
   };
 
-  const [title, setTitle] = useState("Todo List");
+  const [title, setTitle] = useState();
   const handleSubmit = (e) => {
     e.preventDefault();
     const newTodo = {
@@ -16,7 +16,9 @@ const AddTodo = () => {
       title: title,
       done: false,
     };
-    alert(title);
+    addTodo(newTodo);
+    //alert(title);
+    setTitle("");
   };
 
   return (
@@ -28,6 +30,7 @@ const AddTodo = () => {
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Enter some Todo Task"
           style={{ width: "70%", padding: 10 }}
+          required
         />
         <input
           type="submit"
