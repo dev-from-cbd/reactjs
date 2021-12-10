@@ -1,6 +1,6 @@
 import React from "react";
 
-const Todo = ({ todo }) => {
+const Todo = ({ todo, removeTodo }) => {
   //console.log(todo);
   return (
     <div>
@@ -11,7 +11,9 @@ const Todo = ({ todo }) => {
         }}
         checked={todo.done}
       />
+
       <span>{todo.title}</span>
+
       <span
         style={{
           position: "fixed",
@@ -20,10 +22,13 @@ const Todo = ({ todo }) => {
           cursor: "pointer",
           fontWeight: 600,
         }}
-        onClick={() => console.log(todo.id)}
+        onClick={() => {
+          removeTodo(todo.id);
+        }}
       >
         X
       </span>
+
       <hr />
     </div>
   );

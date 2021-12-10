@@ -28,7 +28,7 @@ const AddTodo = ({ addTodo }) => {
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder="Enter some Todo Task"
+          placeholder="Enter some ToDo Task"
           style={{ width: "70%", padding: 10 }}
           required
         />
