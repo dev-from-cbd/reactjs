@@ -14,16 +14,19 @@ const TodoContainer = () => {
   };
 
   const handleRemoveTodo = (id) => {
-    const newTodos.filter((todo) => todo.id === id);
+    const newTodoList = todos.filter((todo) => todo.id !== id);
+    setTodos(newTodoList);
     //console.log(id);
   };
 
   return (
     <div style={{ margin: 20 }}>
       <h4 align="center">React JS Web App</h4>
-      {todos.map((todo) => (
-        <Todo todo={todo} removeTodo={handleRemoveTodo} />
-      ))}
+      {todos.length > 0 ? (
+        todos.map((todo) => <Todo todo={todo} removeTodo={handleRemoveTodo} />)
+      ) : (
+        <p>No todo tasks now</p>
+      )}
       <AddTodo addTodo={handleAddTodo} />
     </div>
   );
