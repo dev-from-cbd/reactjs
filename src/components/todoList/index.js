@@ -10,6 +10,7 @@ const Todo = ({ todo, removeTodo }) => {
           margin: "0 10px",
         }}
         checked={todo.done}
+        onChange={() => console.log(todo.id)}
       />
 
       <span>{todo.title}</span>
