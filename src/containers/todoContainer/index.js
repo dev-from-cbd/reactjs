@@ -19,11 +19,24 @@ const TodoContainer = () => {
     //console.log(id);
   };
 
+  const handleCheckboxChange = (id) => {
+    const newTodoList = todos.map((todo) => {
+      if (todo.id === id) return { ...todo, done: !todo.done };
+    });
+    setTodos(newTodoList)
+  };
+
   return (
     <div style={{ margin: 20 }}>
       <h4 align="center">React JS Web App</h4>
       {todos.length > 0 ? (
-        todos.map((todo) => <Todo todo={todo} removeTodo={handleRemoveTodo} />)
+        todos.map((todo) => (
+          <Todo
+            todo={todo}
+            removeTodo={handleRemoveTodo}
+            handleChange={handleCheckboxChange}
+          />
+        ))
       ) : (
         <p>No todo tasks now</p>
       )}
