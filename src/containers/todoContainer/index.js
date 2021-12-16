@@ -16,7 +16,7 @@ const TodoContainer = () => {
     const newTodoList = todos.filter((todo) => todo.id !== id);
     setTodos(newTodoList);
   };
-  const hanldeCheckboxChange = (id) => {
+  const handleCheckboxChange = (id) => {
     const newTodoList = todos.map((todo) => {
       if (todo.id === id) return { ...todo, done: !todo.done };
       return todo;
@@ -33,7 +33,7 @@ const TodoContainer = () => {
             todo={todo}
             key={todo.id}
             removeTodo={handleRemoveTodo}
-            handleChange={hanldeCheckboxChange}
+            handleChange={handleCheckboxChange}
           />
         ))
       ) : (

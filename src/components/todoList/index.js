@@ -1,28 +1,25 @@
 import React from "react";
-
+import { emitter } from "../notification";
 const Todo = ({ todo, removeTodo, handleChange }) => {
-  //console.log(todo);
-
   const handleCheckboxChange = () => {
     if (todo.done) return null;
     handleChange(todo.id);
+    emitter.emit(
+      "NOTIFICATION",
+      `"${todo.title}" task is completed successfully`
+    );
   };
-
   return (
     <div>
       <input
         type="checkbox"
-        style={{
-          margin: "0 10px",
-        }}
+        style={{ margin: "0 10px" }}
         checked={todo.done}
         onChange={() => handleCheckboxChange()}
       />
-
       <span style={todo.done ? { textDecoration: "line-through" } : null}>
         {todo.title}
       </span>
-
       <span
         style={{
           position: "fixed",
@@ -33,11 +30,14 @@ const Todo = ({ todo, removeTodo, handleChange }) => {
         }}
         onClick={() => {
           removeTodo(todo.id);
+          emitter.emit(
+            "NOTIFICATION",
+            `"${todo.title}" task is removed successfully`
+          );
         }}
       >
         X
       </span>
-
       <hr />
     </div>
   );

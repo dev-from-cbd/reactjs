@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { emitter } from "../notification";
 
 const AddTodo = ({ addTodo }) => {
   const addTodoStyle = {
@@ -17,6 +18,8 @@ const AddTodo = ({ addTodo }) => {
       done: false,
     };
     addTodo(newTodo);
+
+    emitter.emit("NOTIFICATION", "New todo added succesfully");
     //alert(title);
     setTitle("");
   };
